@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diario El Faro</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <div id="contador-articulos" class="contador"></div>
+
+  <button id="limpiar-articulos">🧹 Limpiar todos los artículos</button>
+
+  <h1><img src="../imagenes/logoinicio.png" alt="Logo de Diario El Faro" width="50" height="50" style="vertical-align: middle;">
+    Diario El Faro</h1>
+
+
+    <section class="section">
+      <div class="container">
+        <div class="notification is-info" id="aviso">
+          <button class="delete" onclick="cerrarAviso()"></button>
+          <strong>Aviso importante:</strong> No olvides revisar las últimas noticias de nuestro sitio.
+        </div>
+      </div>
+    </section> 
+
+
+  <div id="reloj" style="font-size: 24px; font-family: monospace; text-align: center; margin: 10px 0;"></div>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-4 has-text-left">Secciones</h2>
+      <div class="buttons is-left">
+        <a href="../html/inicio.html" class="button is-info is-small">Inicio</a>
+        <a href="../html/noticias.html" class="button is-info is-small">Noticias</a>
+        <a href="../html/deportes.html" class="button is-info is-small">Deportes</a>
+        <a href="../html/negocios.html" class="button is-info is-small">Negocios</a>
+      </div>
+    </div>
+  </section>
+
+  <center>
+    <hr />
+    <h2>Articulos Noticias</h2>
+    <div id="articulos-noticias"></div>
+    <hr />
+  </center>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-4">📰 Artículo Destacado</h2>
+      <div id="articulo-destacado" class="box has-background-light"></div>
+
+      <hr />
+
+      <h2 class="title is-5">🗂️ Otros Artículos</h2>
+      <div class="columns is-multiline" id="otros-articulos"></div>
+    </div>
+  </section>
+
+  <img src="../imagenes/ElFaroDeportes.png" alt="Logo de Diario El Faro" width="150" height="100" style="vertical-align: middle;" />
+
+
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-10-mobile is-8-tablet is-6-desktop">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img
+                src="../imagenes/deporte1.jpg"
+                alt="Placeholder image"
+              />
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-48x48">
+                  <img
+                    src="../imagenes/PeriodistaMujer.jpg"
+                    alt="Placeholder image"
+                  />
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-4">Ángela Lerena</p>
+                <p class="subtitle is-6">@ÁngelaLerena</p>
+              </div>
+            </div>
+
+            <div class="content">
+              Valparaíso, 28 de marzo de 2025 — Este fin de semana, las calles de Valparaíso se transformarán en canchas de fútbol con la celebración del Primer Torneo de Fútbol Callejero. El evento, organizado por la Municipalidad y diversas agrupaciones deportivas locales, reunirá a equipos de jóvenes de toda la ciudad para competir en partidos informales pero llenos de pasión.
+
+        El torneo busca promover la actividad física y la integración social en los barrios de la ciudad. Las inscripciones son gratuitas y abiertas a equipos amateurs, con premios para los mejores jugadores y equipos.
+        
+        El torneo se llevará a cabo en el sector del Cerro Alegre, donde se instalarán varias canchas improvisadas. Se espera la participación de más de 20 equipos, convirtiendo a Valparaíso en el epicentro del fútbol callejero durante todo el fin de semana.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-10-mobile is-8-tablet is-6-desktop">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img
+                src="../imagenes/deportes2.jpg"
+                alt="Placeholder image"
+              />
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-48x48">
+                  <img
+                    src="../imagenes/PeriodistaMujer.jpg"
+                    alt="Placeholder image"
+                  />
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-4">Ángela Lerena</p>
+                <p class="subtitle is-6">@Ángela Lerena</p>
+              </div>
+            </div>
+
+            <div class="content">
+              Valparaíso, 28 de marzo de 2025 — Este domingo, Valparaíso vivirá una jornada única con la Primera Maratón con Mascotas, un evento que invita a los residentes a participar junto a sus perros y gatos en una carrera por la ciudad. El recorrido de 5 kilómetros, que abarcará desde el puerto hasta el Cerro Concepción, está diseñado para que tanto los humanos como sus mascotas disfruten del ejercicio y el aire libre.
+
+        El evento, que contará con categorías para distintos tipos de mascotas y dueños, tiene como objetivo fomentar el bienestar animal y promover la convivencia en comunidad. Además de la carrera, habrá actividades para mascotas, como concursos de disfraces y demostraciones de adiestramiento.
+        
+        Las inscripciones están abiertas, y los organizadores esperan una gran participación, ya que se ha convertido en una actividad esperada por los amantes de los animales. Todos los fondos recaudados serán destinados a organizaciones locales de protección animal.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+
+
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-10-mobile is-8-tablet is-6-desktop">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img
+                src="../imagenes/deportes3.jpeg"
+                alt="Placeholder image"
+              />
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-48x48">
+                  <img
+                    src="../imagenes/PeriodistaMujer.jpg"
+                    alt="Placeholder image"
+                  />
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-4">Juan Paulo Roldán Gómez</p>
+                <p class="subtitle is-6">@JuanPauloRoldán</p>
+              </div>
+            </div>
+
+            <div class="content">
+              Valparaíso, 28 de marzo de 2025 — El pádel, un deporte que hace unos años capturaba la atención de miles de fanáticos en Valparaíso y en todo Chile, parece estar pasando por un declive inesperado. Las canchas que antes se llenaban de jugadores, ahora están vacías, y los clubes que solían tener largas listas de espera para sus horarios, se ven vacíos.
+
+        Pero, ¿qué ha sucedido con el pádel? En el pasado, este deporte se popularizó rápidamente en la ciudad, atrayendo a jóvenes y adultos por su accesibilidad y por ser una alternativa al tenis. Sin embargo, expertos y jugadores coinciden en varias razones que explican su caída en popularidad.
+        
+        1. Falta de innovación y competencia con otros deportes
+        
+        El pádel, aunque divertido, no ha evolucionado mucho en los últimos años en términos de reglas, tecnología o nuevas formas de promoción. Otros deportes como el fútbol, el running e incluso el tenis han sabido adaptarse a las nuevas tendencias, creando experiencias más atractivas para los jóvenes, mientras que el pádel ha quedado algo estancado.
+        
+        2. Costos y falta de infraestructura
+        
+        Las canchas de pádel no son tan baratas de mantener como las de otros deportes populares. En Valparaíso, algunas instalaciones han cerrado por problemas financieros o por falta de jugadores. La entrada a estos espacios puede ser costosa, especialmente para las personas que buscan opciones deportivas más accesibles.
+        
+        3. Cambio en las preferencias deportivas
+        
+        Hoy en día, los jóvenes se sienten atraídos por deportes que se perciben como más dinámicos o sociales, como el fútbol sala, el skateboarding o incluso el surf. Además, el auge de los gimnasios y deportes de alto impacto, como el CrossFit, ha desviado a muchos de los aficionados del pádel hacia otras alternativas que ofrecen una mayor variedad de actividades en un solo lugar.
+        
+        4. El impacto de la pandemia
+        
+        La crisis sanitaria provocada por la pandemia de COVID-19 también jugó un papel importante en el declive. Durante el confinamiento, muchas personas descubrieron nuevas formas de ejercitarse en casa, lo que redujo aún más el interés por actividades en espacios cerrados como las canchas de pádel.
+        
+        5. Falta de visibilidad mediática
+        
+        A diferencia de otros deportes, el pádel no ha logrado captar una gran atención mediática a nivel nacional, lo que limita la exposición a nuevos públicos. La cobertura de eventos y campeonatos de pádel sigue siendo limitada, lo que hace difícil que las nuevas generaciones se interesen por él.
+        
+        Aunque algunos clubes de pádel en Valparaíso siguen existiendo, las perspectivas no son tan optimistas. Los expertos sugieren que, para revitalizar el deporte, se necesitaría un esfuerzo conjunto para generar mayor visibilidad y adaptarse a los cambios en las preferencias de los jugadores.
+        
+        El futuro del pádel en la ciudad parece incierto, pero muchos siguen esperando un posible resurgimiento si se logran cambiar las dinámicas que llevaron a su caída.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <script>
+      function cerrarAviso() {
+        document.getElementById("aviso").style.display = "none";
+      }
+      
+      function cargarAviso() {
+        fetch('noticias.json')
+          .then(response => response.json())
+          .then(data => {
+            const avisos = data.avisos;
+            const aleatorio = avisos[Math.floor(Math.random() * avisos.length)];
+            document.getElementById("contenido-aviso").innerHTML = aleatorio;
+          })
+          .catch(error => {
+            console.error('Error al cargar el aviso:', error);
+          });
+      }
+      
+      // Cargar uno al inicio
+      cargarAviso();
+      
+      // Cargar uno nuevo cada 30 segundos
+      setInterval(cargarAviso, 3000);
+      </script>
+
+
+  <!-- Scripts -->
+  <script>
+    document.getElementById("limpiar-articulos").addEventListener("click", () => {
+      if (confirm("¿Estás seguro de que quieres eliminar todos los artículos?")) {
+        localStorage.removeItem("articulos");
+        alert("Todos los artículos fueron eliminados.");
+        location.reload();
+      }
+    });
+
+    const contenedor = document.getElementById("contenedor-articulos");
+    const contador = document.getElementById("contador-articulos");
+    const articulos = JSON.parse(localStorage.getItem("articulos")) || [];
+    const seccionActual = "deportes";
+    const filtrados = articulos.filter(art => art.seccion === seccionActual);
+
+    contador.textContent = `Deportes (${filtrados.length} artículo${filtrados.length !== 1 ? 's' : ''})`;
+
+    if (contenedor) {
+      if (filtrados.length === 0) {
+        contenedor.innerHTML = "<p style='margin:30px;'>No hay artículos en esta sección aún.</p>";
+      } else {
+        filtrados.forEach(art => {
+          const div = document.createElement("div");
+          div.className = "articulo";
+          div.innerHTML = `<h3>${art.titulo}</h3><p>${art.contenido}</p>`;
+          contenedor.appendChild(div);
+        });
+      }
+    }
+
+    function actualizarReloj() {
+      const ahora = new Date();
+      let horas = ahora.getHours().toString().padStart(2, '0');
+      let minutos = ahora.getMinutes().toString().padStart(2, '0');
+      let segundos = ahora.getSeconds().toString().padStart(2, '0');
+      const horaActual = `${horas}:${minutos}:${segundos}`;
+      document.getElementById('reloj').textContent = `Hora actual: ${horaActual}`;
+    }
+
+    setInterval(actualizarReloj, 1000);
+    actualizarReloj();
+
+    function cerrarAviso() {
+      const aviso = document.getElementById('aviso');
+      aviso.style.display = 'none';
+    }
+
+    const articulosTotales = JSON.parse(localStorage.getItem("articulos")) || [];
+    const articulosNoticias = articulosTotales.filter(a => a.seccion === "deportes");
+
+    const destacado = document.getElementById("articulo-destacado");
+    const otros = document.getElementById("otros-articulos");
+
+    if (articulosNoticias.length > 0) {
+      const art = articulosNoticias[articulosNoticias.length - 1];
+      let media = "";
+      if (art.imagen) {
+        media = `<img src="${art.imagen}" alt="Imagen" style="max-width:100%; height:auto;">`;
+      } else if (art.video) {
+        media = `<video controls style="max-width:100%; height:auto;"><source src="${art.video}" type="video/mp4"></video>`;
+      }
+      destacado.innerHTML = `<h3 class="title is-5">${art.titulo}</h3>${media}<p>${art.contenido}</p>`;
+
+      const restantes = articulosNoticias.slice(0, -1).reverse();
+      restantes.forEach(a => {
+        let miniMedia = "";
+        if (a.imagen) {
+          miniMedia = `<img src="${a.imagen}" alt="Imagen" style="max-width:100%; height:150px; object-fit:cover;">`;
+        } else if (a.video) {
+          miniMedia = `<video controls style="width:100%; height:150px; object-fit:cover;"><source src="${a.video}" type="video/mp4"></video>`;
+        }
+        const col = document.createElement("div");
+        col.className = "column is-one-third";
+        col.innerHTML = `<div class="box"><h4 class="title is-6">${a.titulo}</h4>${miniMedia}<p>${a.contenido}</p></div>`;
+        otros.appendChild(col);
+      });
+    }
+  </script>
+
+  <!-- Botón flotante -->
+<button id="scrollTopBtn" class="button is-success is-rounded" style="position: fixed; bottom: 1rem; right: 1rem; display: none; z-index: 10;">
+  ↑ Subir
+</button>
+
+<script>
+  const btn = document.getElementById("scrollTopBtn");
+
+  window.addEventListener("scroll", () => {
+    btn.style.display = window.scrollY > 200 ? "block" : "none";
+  });
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+
+ <footer class="footer has-background-dark has-text-white">
+  <div class="content has-text-centered">
+    <p><strong>Diario El Faro</strong></p>
+    <p>Todos los derechos reservados.</p>
+    <p></p>
+
+    <!-- Íconos de redes sociales -->
+    <div class="buttons is-centered">
+      <a class="button is-dark" href="https://x.com" target="_blank">
+        <span class="icon">
+          <i class="fab fa-twitter"></i>
+        </span>
+      </a>
+      <a class="button is-dark" href="https://facebook.com" target="_blank">
+        <span class="icon">
+          <i class="fab fa-facebook-f"></i>
+        </span>
+      </a>
+      <a class="button is-dark" href="https://instagram.com" target="_blank">
+        <span class="icon">
+          <i class="fab fa-instagram"></i>
+        </span>
+      </a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

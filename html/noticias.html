@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diario El Faro</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <div id="contador-articulos" class="contador"></div>
+
+  <button id="limpiar-articulos">🧹 Limpiar todos los artículos</button>
+
+  <h1><img src="../imagenes/logoinicio.png" alt="Logo de Diario El Faro" width="50" height="50" style="vertical-align: middle;">
+    Diario El Faro</h1>
+
+ <section class="section">
+      <div class="container">
+        <div class="notification is-info" id="aviso">
+          <button class="delete" onclick="cerrarAviso()"></button>
+          <strong>Aviso importante:</strong> No olvides revisar las últimas noticias de nuestro sitio.
+        </div>
+      </div>
+    </section> 
+
+    
+  <div id="reloj" style="font-size: 24px; font-family: monospace; text-align: center; margin: 10px 0;"></div>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-4 has-text-left">Secciones</h2>
+      <div class="buttons is-left">
+        <a href="../html/inicio.html" class="button is-info is-small">Inicio</a>
+        <a href="../html/noticias.html" class="button is-info is-small">Noticias</a>
+        <a href="../html/deportes.html" class="button is-info is-small">Deportes</a>
+        <a href="../html/negocios.html" class="button is-info is-small">Negocios</a>
+      </div>
+    </div>
+  </section>
+
+  <center>
+    <hr />
+    <h2>Articulos Noticias</h2>
+    <div id="articulos-noticias"></div>
+    <hr />
+  </center>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-4">📰 Artículo Destacado</h2>
+      <div id="articulo-destacado" class="box has-background-light"></div>
+
+      <hr />
+
+      <h2 class="title is-5">🗂️ Otros Artículos</h2>
+      <div class="columns is-multiline" id="otros-articulos"></div>
+    </div>
+  </section>
+
+  <img src="../imagenes/ElFaroNoticias.png" alt="Logo de Diario El Faro" width="150" height="100" style="vertical-align: middle;" />
+
+  <!-- Primer artículo -->
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-10-mobile is-8-tablet is-6-desktop">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img
+                src="../imagenes/Valparaiso.webp"
+                alt="Placeholder image"
+              />
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-48x48">
+                  <img
+                    src="../imagenes/periodista.jpg"
+                    alt="Placeholder image"
+                  />
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-4">Juan Paulo Roldán Gómez</p>
+                <p class="subtitle is-6">@JuanPauloRoldán</p>
+              </div>
+            </div>
+
+            <div class="content">
+              Valparaíso, 28 de marzo de 2025 — Esta mañana fue inaugurado el nuevo Mirador Viento del Puerto, una estructura ecológica ubicada en el tradicional Cerro Alegre que promete convertirse en uno de los principales atractivos turísticos del puerto.
+
+    Construido con materiales reciclados y energías renovables, el mirador ofrece una vista de 360 grados del anfiteatro natural de Valparaíso, desde el mar hasta los cerros más altos. La obra fue impulsada por la Municipalidad junto con organizaciones vecinales y el financiamiento de un fondo de desarrollo urbano sostenible.
+    
+    “El mirador es un símbolo de lo que queremos para Valparaíso: una ciudad que avanza cuidando su patrimonio y su entorno”, señaló la alcaldesa Mariana Díaz durante la ceremonia de apertura, que contó con presentaciones musicales y degustaciones de productos locales.
+    
+    El acceso al mirador es gratuito y estará abierto todos los días de 9:00 a 21:00 horas. Además, se informó que el lugar contará con visitas guiadas para turistas y actividades culturales los fines de semana.
+    
+    Con esta nueva atracción, Valparaíso busca consolidarse como destino turístico sustentable en la región y continuar revitalizando sus espacios patrimoniales con participación ciudadana.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video artículo -->
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-10-mobile is-8-tablet is-6-desktop">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-16by9">
+              <video controls style="width: 100%; height: 100%; object-fit: cover;">
+                <source src="../videos/VideoFiestaValparaiso.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+              </video>
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-48x48">
+                  <img
+                    src="../imagenes/periodista.jpg"
+                    alt="Placeholder image"
+                  />
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-4">Juan Paulo Roldán Gómez</p>
+                <p class="subtitle is-6">@JuanPauloRoldán</p>
+              </div>
+            </div>
+  
+            <div class="content">
+              Valparaíso, 28 de marzo de 2025 — Este sábado, las calles del plan de Valparaíso se llenarán de color y música con el primer Festival Nocturno de Arte Callejero, una iniciativa que reunirá a muralistas, músicos, malabaristas y poetas urbanos desde las 18:00 hasta la medianoche.
+  
+              El evento busca revitalizar el centro porteño y dar espacio a artistas locales. La entrada es gratuita y se espera una alta participación ciudadana.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audio artículo -->
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-10-mobile is-8-tablet is-6-desktop">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img
+                src="../imagenes/Alien.jpg"
+                alt="Placeholder image"
+              />
+            </figure>
+            <audio controls>
+              <source src="../audio/AudioAlien.mp3" type="audio/mpeg">
+              Tu navegador no soporta el elemento de audio.
+            </audio>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-48x48">
+                  <img
+                    src="../imagenes/periodista.jpg"
+                    alt="Placeholder image"
+                  />
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-4">Juan Paulo Roldán Gómez</p>
+                <p class="subtitle is-6">@JuanPauloRoldán</p>
+              </div>
+            </div>
+
+            <div class="content">
+              Valparaíso, 28 de marzo de 2025 — Un extraño audio grabado por un residente del cerro Barón ha generado curiosidad e inquietud entre los vecinos del sector. El sonido, que fue registrado durante la madrugada del martes, consiste en una secuencia de tonos graves y pulsos rítmicos que, según algunos, “no parecen humanos”.
+
+              El archivo fue compartido en redes sociales y rápidamente se volvió viral, atrayendo incluso a aficionados a lo paranormal. Sin embargo, expertos del Departamento de Acústica de la Universidad Técnica Federico Santa María señalan que podría tratarse de “vibraciones mecánicas amplificadas por la estructura del cerro y el eco urbano”.
+              
+              Las autoridades locales descartaron cualquier situación de peligro, pero seguirán monitoreando la zona para esclarecer el origen del audio. Mientras tanto, varios curiosos ya se han acercado al cerro en busca de más pistas.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- Scripts -->
+  <script>
+    document.getElementById("limpiar-articulos").addEventListener("click", () => {
+      if (confirm("¿Estás seguro de que quieres eliminar todos los artículos?")) {
+        localStorage.removeItem("articulos");
+        alert("Todos los artículos fueron eliminados.");
+        location.reload();
+      }
+    });
+
+    const contenedor = document.getElementById("contenedor-articulos");
+    const contador = document.getElementById("contador-articulos");
+    const articulos = JSON.parse(localStorage.getItem("articulos")) || [];
+    const seccionActual = "noticias";
+    const filtrados = articulos.filter(art => art.seccion === seccionActual);
+
+    contador.textContent = `Noticias (${filtrados.length} artículo${filtrados.length !== 1 ? 's' : ''})`;
+
+    if (contenedor) {
+      if (filtrados.length === 0) {
+        contenedor.innerHTML = "<p style='margin:30px;'>No hay artículos en esta sección aún.</p>";
+      } else {
+        filtrados.forEach(art => {
+          const div = document.createElement("div");
+          div.className = "articulo";
+          div.innerHTML = `<h3>${art.titulo}</h3><p>${art.contenido}</p>`;
+          contenedor.appendChild(div);
+        });
+      }
+    }
+
+    function actualizarReloj() {
+      const ahora = new Date();
+      let horas = ahora.getHours().toString().padStart(2, '0');
+      let minutos = ahora.getMinutes().toString().padStart(2, '0');
+      let segundos = ahora.getSeconds().toString().padStart(2, '0');
+      const horaActual = `${horas}:${minutos}:${segundos}`;
+      document.getElementById('reloj').textContent = `Hora actual: ${horaActual}`;
+    }
+
+    setInterval(actualizarReloj, 1000);
+    actualizarReloj();
+
+    function cerrarAviso() {
+      const aviso = document.getElementById('aviso');
+      aviso.style.display = 'none';
+    }
+
+    const articulosTotales = JSON.parse(localStorage.getItem("articulos")) || [];
+    const articulosNoticias = articulosTotales.filter(a => a.seccion === "noticias");
+
+    const destacado = document.getElementById("articulo-destacado");
+    const otros = document.getElementById("otros-articulos");
+
+    if (articulosNoticias.length > 0) {
+      const art = articulosNoticias[articulosNoticias.length - 1];
+      let media = "";
+      if (art.imagen) {
+        media = `<img src="${art.imagen}" alt="Imagen" style="max-width:100%; height:auto;">`;
+      } else if (art.video) {
+        media = `<video controls style="max-width:100%; height:auto;"><source src="${art.video}" type="video/mp4"></video>`;
+      }
+      destacado.innerHTML = `<h3 class="title is-5">${art.titulo}</h3>${media}<p>${art.contenido}</p>`;
+
+      const restantes = articulosNoticias.slice(0, -1).reverse();
+      restantes.forEach(a => {
+        let miniMedia = "";
+        if (a.imagen) {
+          miniMedia = `<img src="${a.imagen}" alt="Imagen" style="max-width:100%; height:150px; object-fit:cover;">`;
+        } else if (a.video) {
+          miniMedia = `<video controls style="width:100%; height:150px; object-fit:cover;"><source src="${a.video}" type="video/mp4"></video>`;
+        }
+        const col = document.createElement("div");
+        col.className = "column is-one-third";
+        col.innerHTML = `<div class="box"><h4 class="title is-6">${a.titulo}</h4>${miniMedia}<p>${a.contenido}</p></div>`;
+        otros.appendChild(col);
+      });
+    }
+  </script>
+
+<!-- Botón flotante -->
+<button id="scrollTopBtn" class="button is-success is-rounded" style="position: fixed; bottom: 1rem; right: 1rem; display: none; z-index: 10;">
+  ↑ Subir
+</button>
+
+<script>
+  const btn = document.getElementById("scrollTopBtn");
+
+  window.addEventListener("scroll", () => {
+    btn.style.display = window.scrollY > 200 ? "block" : "none";
+  });
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+
+
+ <footer class="footer has-background-dark has-text-white">
+  <div class="content has-text-centered">
+    <p><strong>Diario El Faro</strong></p>
+    <p>Todos los derechos reservados.</p>
+    <p></p>
+
+    <!-- Íconos de redes sociales -->
+    <div class="buttons is-centered">
+      <a class="button is-dark" href="https://x.com" target="_blank">
+        <span class="icon">
+          <i class="fab fa-twitter"></i>
+        </span>
+      </a>
+      <a class="button is-dark" href="https://facebook.com" target="_blank">
+        <span class="icon">
+          <i class="fab fa-facebook-f"></i>
+        </span>
+      </a>
+      <a class="button is-dark" href="https://instagram.com" target="_blank">
+        <span class="icon">
+          <i class="fab fa-instagram"></i>
+        </span>
+      </a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

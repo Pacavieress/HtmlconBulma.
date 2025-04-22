@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diario El Faro</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <div id="contador-articulos" class="contador"></div>
+
+  <button id="limpiar-articulos">🧹 Limpiar todos los artículos</button>
+
+  <h1><img src="../imagenes/logoinicio.png" alt="Logo de Diario El Faro" width="50" height="50" style="vertical-align: middle;">
+    Diario El Faro</h1>
+
+
+   <<section class="section">
+      <div class="container">
+        <div class="notification is-info" id="aviso">
+          <button class="delete" onclick="cerrarAviso()"></button>
+          <strong>Aviso importante:</strong> No olvides revisar las últimas noticias de nuestro sitio.
+        </div>
+      </div>
+    </section> 
+
+
+  <div id="reloj" style="font-size: 24px; font-family: monospace; text-align: center; margin: 10px 0;"></div>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-4 has-text-left">Secciones</h2>
+      <div class="buttons is-left">
+        <a href="../html/inicio.html" class="button is-info is-small">Inicio</a>
+        <a href="../html/noticias.html" class="button is-info is-small">Noticias</a>
+        <a href="../html/deportes.html" class="button is-info is-small">Deportes</a>
+        <a href="../html/negocios.html" class="button is-info is-small">Negocios</a>
+      </div>
+    </div>
+  </section>
+
+  <center>
+    <hr />
+    <h2>Articulos Noticias</h2>
+    <div id="articulos-noticias"></div>
+    <hr />
+  </center>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-4">📰 Artículo Destacado</h2>
+      <div id="articulo-destacado" class="box has-background-light"></div>
+
+      <hr />
+
+      <h2 class="title is-5">🗂️ Otros Artículos</h2>
+      <div class="columns is-multiline" id="otros-articulos"></div>
+    </div>
+  </section>
+
+  <img src="../imagenes/ElFaroNegocios.png" alt="Logo de Diario El Faro" width="150" height="100" style="vertical-align: middle;" />
+
+  <!-- Primer artículo -->
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-10-mobile is-8-tablet is-6-desktop">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img
+                src="../imagenes/negocio1.png"
+                alt="Placeholder image"
+              />
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-48x48">
+                  <img
+                    src="../imagenes/Economista.png"
+                    alt="Placeholder image"
+                  />
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-4">Ricardo Caballero</p>
+                <p class="subtitle is-6">@RicardoCaballero</p>
+              </div>
+            </div>
+
+            <div class="content">
+              Valparaíso, 28 de marzo de 2025 — Valparaíso está consolidándose como un hub de innovación en Chile, con un creciente número de startups y empresas tecnológicas que eligen la ciudad para operar. Gracias a sus espacios de coworking, incubadoras de empresas y menores costos operativos en comparación con Santiago, la ciudad se ha convertido en un destino atractivo para emprendedores.
+
+              El Puerto de Valparaíso, clave para el comercio, ahora también sirve como plataforma para exportar productos tecnológicos. Además, las políticas municipales de apoyo al emprendimiento están impulsando el desarrollo de nuevas empresas, haciendo de Valparaíso un referente de innovación en la región.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <!-- 
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-10-mobile is-8-tablet is-6-desktop">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-16by9">
+              <video controls style="width: 100%; height: 100%; object-fit: cover;">
+                <source src="../videos/VideoFiestaValparaiso.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+              </video>
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-48x48">
+                  <img
+                    src="../imagenes/periodista.jpg"
+                    alt="Placeholder image"
+                  />
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-4">Juan Paulo Roldán Gómez</p>
+                <p class="subtitle is-6">@JuanPauloRoldán</p>
+              </div>
+            </div>
+  
+            <div class="content">
+              Valparaíso, 28 de marzo de 2025 — Este sábado, las calles del plan de Valparaíso se llenarán de color y música con el primer Festival Nocturno de Arte Callejero, una iniciativa que reunirá a muralistas, músicos, malabaristas y poetas urbanos desde las 18:00 hasta la medianoche.
+  
+              El evento busca revitalizar el centro porteño y dar espacio a artistas locales. La entrada es gratuita y se espera una alta participación ciudadana.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+-->
+ 
+   
+   <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-10-mobile is-8-tablet is-6-desktop">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img
+                src="../imagenes/negocio2.png"
+                alt="Placeholder image"
+              />
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-48x48">
+                  <img
+                    src="../imagenes/Economista.png"
+                    alt="Placeholder image"
+                  />
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-4">Ricardo Caballero</p>
+                <p class="subtitle is-6">@RicardoCaballero</p>
+              </div>
+            </div>
+
+            <div class="content">
+              Valparaíso, 28 de marzo de 2025 — Los índices bursátiles de Valparaíso experimentaron un notable aumento esta semana, impulsados por un crecimiento en las acciones de empresas tecnológicas y de comercio marítimo. El alza refleja un renovado optimismo en la economía local, especialmente tras la inauguración de nuevos proyectos empresariales en la ciudad.
+
+            Expertos destacan que esta tendencia podría continuar, gracias al fortalecimiento de la infraestructura portuaria y el creciente interés de inversionistas en el mercado de startups de la región. El índice bursátil de Valparaíso subió un 3,5% en los últimos tres días, marcando un punto positivo para la economía regional.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- Scripts -->
+  <script>
+    document.getElementById("limpiar-articulos").addEventListener("click", () => {
+      if (confirm("¿Estás seguro de que quieres eliminar todos los artículos?")) {
+        localStorage.removeItem("articulos");
+        alert("Todos los artículos fueron eliminados.");
+        location.reload();
+      }
+    });
+
+    const contenedor = document.getElementById("contenedor-articulos");
+    const contador = document.getElementById("contador-articulos");
+    const articulos = JSON.parse(localStorage.getItem("articulos")) || [];
+    const seccionActual = "negocios";
+    const filtrados = articulos.filter(art => art.seccion === seccionActual);
+
+    contador.textContent = `Negocios (${filtrados.length} artículo${filtrados.length !== 1 ? 's' : ''})`;
+
+    if (contenedor) {
+      if (filtrados.length === 0) {
+        contenedor.innerHTML = "<p style='margin:30px;'>No hay artículos en esta sección aún.</p>";
+      } else {
+        filtrados.forEach(art => {
+          const div = document.createElement("div");
+          div.className = "articulo";
+          div.innerHTML = `<h3>${art.titulo}</h3><p>${art.contenido}</p>`;
+          contenedor.appendChild(div);
+        });
+      }
+    }
+
+    function actualizarReloj() {
+      const ahora = new Date();
+      let horas = ahora.getHours().toString().padStart(2, '0');
+      let minutos = ahora.getMinutes().toString().padStart(2, '0');
+      let segundos = ahora.getSeconds().toString().padStart(2, '0');
+      const horaActual = `${horas}:${minutos}:${segundos}`;
+      document.getElementById('reloj').textContent = `Hora actual: ${horaActual}`;
+    }
+
+    setInterval(actualizarReloj, 1000);
+    actualizarReloj();
+
+    function cerrarAviso() {
+      const aviso = document.getElementById('aviso');
+      aviso.style.display = 'none';
+    }
+
+    const articulosTotales = JSON.parse(localStorage.getItem("articulos")) || [];
+    const articulosNoticias = articulosTotales.filter(a => a.seccion === "negocios");
+
+    const destacado = document.getElementById("articulo-destacado");
+    const otros = document.getElementById("otros-articulos");
+
+    if (articulosNoticias.length > 0) {
+      const art = articulosNoticias[articulosNoticias.length - 1];
+      let media = "";
+      if (art.imagen) {
+        media = `<img src="${art.imagen}" alt="Imagen" style="max-width:100%; height:auto;">`;
+      } else if (art.video) {
+        media = `<video controls style="max-width:100%; height:auto;"><source src="${art.video}" type="video/mp4"></video>`;
+      }
+      destacado.innerHTML = `<h3 class="title is-5">${art.titulo}</h3>${media}<p>${art.contenido}</p>`;
+
+      const restantes = articulosNoticias.slice(0, -1).reverse();
+      restantes.forEach(a => {
+        let miniMedia = "";
+        if (a.imagen) {
+          miniMedia = `<img src="${a.imagen}" alt="Imagen" style="max-width:100%; height:150px; object-fit:cover;">`;
+        } else if (a.video) {
+          miniMedia = `<video controls style="width:100%; height:150px; object-fit:cover;"><source src="${a.video}" type="video/mp4"></video>`;
+        }
+        const col = document.createElement("div");
+        col.className = "column is-one-third";
+        col.innerHTML = `<div class="box"><h4 class="title is-6">${a.titulo}</h4>${miniMedia}<p>${a.contenido}</p></div>`;
+        otros.appendChild(col);
+      });
+    }
+  </script>
+
+  <!-- Botón flotante -->
+<button id="scrollTopBtn" class="button is-success is-rounded" style="position: fixed; bottom: 1rem; right: 1rem; display: none; z-index: 10;">
+  ↑ Subir
+</button>
+
+<script>
+  const btn = document.getElementById("scrollTopBtn");
+
+  window.addEventListener("scroll", () => {
+    btn.style.display = window.scrollY > 200 ? "block" : "none";
+  });
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+
+ <footer class="footer has-background-dark has-text-white">
+  <div class="content has-text-centered">
+    <p><strong>Diario El Faro</strong></p>
+    <p>Todos los derechos reservados.</p>
+    <p></p>
+
+    <!-- Íconos de redes sociales -->
+    <div class="buttons is-centered">
+      <a class="button is-dark" href="https://x.com" target="_blank">
+        <span class="icon">
+          <i class="fab fa-twitter"></i>
+        </span>
+      </a>
+      <a class="button is-dark" href="https://facebook.com" target="_blank">
+        <span class="icon">
+          <i class="fab fa-facebook-f"></i>
+        </span>
+      </a>
+      <a class="button is-dark" href="https://instagram.com" target="_blank">
+        <span class="icon">
+          <i class="fab fa-instagram"></i>
+        </span>
+      </a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

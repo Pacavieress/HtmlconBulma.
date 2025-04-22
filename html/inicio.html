@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diario El Faro</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+ 
+  
+  <h1><img src="../imagenes/logoinicio.png" alt="Logo de Diario El Faro" width="50" height="50"
+      style="vertical-align: middle;">
+    Diario El Faro</h1>
+
+   <!--<section class="section">
+      <div class="container">
+        <div class="notification is-info" id="aviso">
+          <button class="delete" onclick="cerrarAviso()"></button>
+          <strong>Aviso importante:</strong> No olvides revisar las últimas noticias de nuestro sitio.
+        </div>
+      </div>
+    </section> -->
+
+    <section class="section">
+      <div class="container">
+        <div class="notification is-info" id="aviso">
+          <button class="delete" onclick="cerrarAviso()"></button>
+          <strong>Aviso importante:</strong> 
+          <span id="contenido-aviso">Cargando aviso...</span>
+        </div>
+      </div>
+    </section>
+ 
+    <div id="reloj" style="font-size: 24px; font-family: monospace; text-align: center; margin: 10px 0;"></div>
+
+ 
+
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-4 has-text-left">Secciones</h2>
+      <div class="buttons is-left">
+        <a href="../html/inicio.html" class="button is-info is-small">Inicio</a>
+        <a href="../html/noticias.html" class="button is-info is-small">Noticias</a>
+        <a href="../html/deportes.html" class="button is-info is-small">Deportes</a>
+        <a href="../html/negocios.html" class="button is-info is-small">Negocios</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">Agregar nuevo artículo</p>
+            </header>
+            <div class="card-content">
+              <form id="formulario-articulo">
+                <div class="field">
+                  <label for="titulo">Título:</label><br>
+                  <div class="control">
+                    <input type="text" id="titulo" name="titulo" required><br><br>
+                  </div>
+                </div>
+  
+                <div class="field">
+                  <label class="label" for="contenido">Contenido:</label>
+                  <div class="control">
+                    <textarea class="textarea" id="contenido" name="contenido" rows="5" cols="50" required></textarea>
+                  </div>
+                </div>
+  
+                <div class="field">
+                  <label class="label" for="seccion">Sección:</label>
+                  <div class="control">
+                    <div class="select">
+                      <select id="seccion" name="seccion" required>
+                        <option value="noticias">Noticias</option>
+                        <option value="deportes">Deportes</option>
+                        <option value="negocios">Negocios</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="field is-grouped is-grouped-right">
+                  <div class="control">
+                    <button class="button is-info" type="submit">Agregar artículo</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+
+  <script>
+    const formulario = document.getElementById("formulario-articulo");
+  
+    formulario.addEventListener("submit", function (e) {
+      e.preventDefault();
+  
+      const titulo = document.getElementById("titulo").value;
+      const contenido = document.getElementById("contenido").value;
+      const seccion = document.getElementById("seccion").value;
+  
+      const nuevoArticulo = { titulo, contenido, seccion };
+  
+      // Obtenemos artículos guardados o iniciamos un array vacío
+      let articulos = JSON.parse(localStorage.getItem("articulos")) || [];
+  
+      articulos.push(nuevoArticulo);
+      localStorage.setItem("articulos", JSON.stringify(articulos));
+  
+      // Actualizar dinámicamente la sección correspondiente (si existe el contenedor)
+      const contenedor = document.getElementById(`articulos-${seccion}`);
+      if (contenedor) {
+        const nuevo = document.createElement("article");
+        const tituloEl = document.createElement("h3");
+        const contenidoEl = document.createElement("p");
+  
+        tituloEl.textContent = ' ' + titulo;
+        contenidoEl.textContent = contenido;
+  
+        nuevo.appendChild(tituloEl);
+        nuevo.appendChild(contenidoEl);
+        contenedor.prepend(nuevo); // Agrega al principio
+      }
+  
+      // Actualizar aviso
+      const aviso = document.getElementById("aviso");
+      if (aviso) {
+        aviso.innerHTML = `
+          <button class="delete" onclick="cerrarAviso()"></button>
+          <strong>Nuevo artículo publicado:</strong> "${titulo}" en la sección <em>${seccion}</em>.
+        `;
+      }
+  
+      alert("Artículo agregado correctamente.");
+      formulario.reset();
+    });
+  </script>
+  
+
+
+
+
+  <script> //Script para el reloj
+    // Función para actualizar el reloj
+    function actualizarReloj() {
+      const ahora = new Date();
+      let horas = ahora.getHours().toString().padStart(2, '0');
+      let minutos = ahora.getMinutes().toString().padStart(2, '0');
+      let segundos = ahora.getSeconds().toString().padStart(2, '0');
+      const horaActual = `${horas}:${minutos}:${segundos}`;
+      document.getElementById('reloj').textContent = `Hora actual: ${horaActual}`;
+    }
+
+    setInterval(actualizarReloj, 1000);
+    actualizarReloj(); // Mostrar de inmediato
+  </script>
+
+
+
+  <div>
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-half is-offset-one-quarter">
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title">Contacto</p>
+              </header>
+              <div class="card-content">
+                <form id="formulario-contacto">
+                  <label for="nombre">Nombre:</label><br>
+                  <input type="text" id="nombre" name="nombre" required><br><br>
+
+                  <label for="email">Correo electrónico:</label><br>
+                  <input type="email" id="email" name="email" required><br><br>
+
+                  <label for="asunto">Asunto:</label><br>
+                  <input type="text" id="asunto" name="asunto" required><br><br>
+
+                  <label for="mensaje">Mensaje:</label><br>
+                  <textarea id="mensaje" name="mensaje" rows="5" cols="50" required></textarea>
+
+
+                  <div class="field is-grouped is-grouped-right">
+                    <div class="control">
+                      <button class="button is-info" type="submit">Enviar</button>
+                    </div>
+                  </div>
+                </form>
+                <p id="mensaje-confirmacion" style="color: green;"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function cerrarAviso() {
+        document.getElementById("aviso").style.display = "none";
+      }
+      
+      function cargarAviso() {
+        fetch('noticias.json')
+          .then(response => response.json())
+          .then(data => {
+            const avisos = data.avisos;
+            const aleatorio = avisos[Math.floor(Math.random() * avisos.length)];
+            document.getElementById("contenido-aviso").innerHTML = aleatorio;
+          })
+          .catch(error => {
+            console.error('Error al cargar el aviso:', error);
+          });
+      }
+      
+      // Cargar uno al inicio
+      cargarAviso();
+      
+      // Cargar uno nuevo cada 30 segundos
+      setInterval(cargarAviso, 3000);
+      </script>
+</body>
+<script>
+  const formularioContacto = document.getElementById("formulario-contacto");
+  const mensajeConfirmacion = document.getElementById("mensaje-confirmacion");
+
+  formularioContacto.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const nombre = document.getElementById("nombre").value;
+    const email = document.getElementById("email").value;
+    const asunto = document.getElementById("asunto").value;
+    const mensaje = document.getElementById("mensaje").value;
+
+    const nuevoMensaje = {
+      nombre,
+      email,
+      asunto,
+      mensaje,
+      fecha: new Date().toLocaleString()
+    };
+
+    let mensajes = JSON.parse(localStorage.getItem("mensajesContacto")) || [];
+    mensajes.push(nuevoMensaje);
+    localStorage.setItem("mensajesContacto", JSON.stringify(mensajes));
+
+    formularioContacto.reset();
+    mensajeConfirmacion.textContent = "✅ Mensaje enviado correctamente. ¡Gracias por contactarnos!";
+  });
+</script>
+
+<script>
+  function cerrarAviso() {
+    const aviso = document.getElementById('aviso');
+    aviso.style.display = 'none'; // Oculta el aviso
+  }
+</script>
+
+<!-- Botón flotante -->
+<button id="scrollTopBtn" class="button is-success is-rounded" style="position: fixed; bottom: 1rem; right: 1rem; display: none; z-index: 10;">
+  ↑ Subir
+</button>
+
+<script>
+  const btn = document.getElementById("scrollTopBtn");
+
+  window.addEventListener("scroll", () => {
+    btn.style.display = window.scrollY > 200 ? "block" : "none";
+  });
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+
+<footer class="footer has-background-dark has-text-white">
+  <div class="content has-text-centered">
+    <p><strong>Diario El Faro</strong></p>
+    <p>Todos los derechos reservados.</p>
+    <p></p>
+
+    <!-- Íconos de redes sociales -->
+    <div class="buttons is-centered">
+      <a class="button is-dark" href="https://x.com" target="_blank">
+        <span class="icon">
+          <i class="fab fa-twitter"></i>
+        </span>
+      </a>
+      <a class="button is-dark" href="https://facebook.com" target="_blank">
+        <span class="icon">
+          <i class="fab fa-facebook-f"></i>
+        </span>
+      </a>
+      <a class="button is-dark" href="https://instagram.com" target="_blank">
+        <span class="icon">
+          <i class="fab fa-instagram"></i>
+        </span>
+      </a>
+    </div>
+  </div>
+</footer>
+</html>
